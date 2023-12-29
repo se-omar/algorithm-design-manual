@@ -3,12 +3,15 @@
 package chapter2
 
 func twoSum(nums []int, target int) []int {
+	mp := make(map[int]int)
+
 	for i := 0; i < len(nums); i++ {
-		for j := i + 1; j < len(nums); j++ {
-			if nums[i]+nums[j] == target {
-				return []int{i, j}
-			}
+		el := nums[i]
+		if _, ok := mp[target-el]; ok {
+			return []int{i, mp[target-el]}
 		}
+
+		mp[el] = i
 	}
 
 	return []int{}
