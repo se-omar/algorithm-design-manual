@@ -5,7 +5,7 @@ type LinkedList struct {
 	next *LinkedList
 }
 
-func searchList(item any, list *LinkedList) any {
+func search(item any, list *LinkedList) any {
 	if list == nil {
 		return nil
 	}
@@ -13,6 +13,15 @@ func searchList(item any, list *LinkedList) any {
 	if list.item == item {
 		return item
 	} else {
-		return searchList(item, list.next)
+		return search(item, list.next)
 	}
+}
+
+func insert(item any, list *LinkedList) {
+	newL := LinkedList{
+		item: item,
+		next: list,
+	}
+
+	*list = newL
 }
