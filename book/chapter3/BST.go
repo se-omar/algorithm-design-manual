@@ -46,3 +46,15 @@ func maxBst(tree *BST) *BST {
 
 	return maxBst(tree.right)
 }
+
+func traverseBst(tree *BST) {
+	if tree != nil {
+		processItem(tree.item)
+		traverseBst(tree.left)
+		traverseBst(tree.right)
+	}
+}
+
+func processItem(item int) {
+	// do something with each value from the tree traversal
+}
