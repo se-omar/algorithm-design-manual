@@ -58,3 +58,20 @@ func traverseBst(tree *BST) {
 func processItem(item int) {
 	// do something with each value from the tree traversal
 }
+
+func insertBst(tree *BST, item int, parent *BST) {
+	if tree == nil {
+		//insert item
+		newTree := BST{parent: parent, left: nil, right: nil, item: item}
+		*tree = newTree
+		return
+	}
+	if item > tree.item {
+		insertBst(tree.right, item, parent)
+	} else if item < tree.item {
+		insertBst(tree.left, item, parent)
+	} else {
+		return
+	}
+
+}
