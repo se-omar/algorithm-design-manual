@@ -17,3 +17,19 @@ func BinarySearch(arr []int, item int, low, high int) int {
 		return mid
 	}
 }
+
+func BinarySearchIter(arr []int, item int) int {
+	low, high := 0, len(arr)
+	for low <= high {
+		mid := low + (high-low)/2
+		if arr[mid] < item {
+			low = mid + 1
+		} else if arr[mid] > item {
+			high = mid - 1
+		} else {
+			return mid
+		}
+	}
+
+	return -1
+}
