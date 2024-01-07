@@ -32,5 +32,17 @@ func minBst(tree *BST) *BST {
 	}
 
 	return minBst(tree.left)
+}
 
+// finds the maximum element in a BST
+func maxBst(tree *BST) *BST {
+	if tree == nil {
+		return &BST{}
+	}
+
+	if tree.right == nil {
+		return tree
+	}
+
+	return maxBst(tree.right)
 }
