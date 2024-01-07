@@ -20,3 +20,17 @@ func searchBst(tree *BST, item int) *BST {
 		return tree
 	}
 }
+
+// finds the minimum element in a BST
+func minBst(tree *BST) *BST {
+	if tree == nil {
+		return &BST{}
+	}
+
+	if tree.left == nil {
+		return tree
+	}
+
+	return minBst(tree.left)
+
+}
