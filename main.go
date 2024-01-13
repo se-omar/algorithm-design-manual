@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"tadd/book/chapter3"
+	"tadd/book/chapter3/exercises"
 )
 
 func main() {
-	arr := []int{1, 2, 4, 8, 31, 66}
+	s := ")()(())()()))())))("
 
-	fmt.Println(chapter3.BinarySearchIter(arr, 8))
+	fmt.Println(chapter3.ContigParens(s))
 }
