@@ -1,24 +1,20 @@
 package chapter3
 
+import "sort"
+
 func isAnagram(s string, t string) bool {
-	// populate array O(n) O(n)
+	// sort both strings O(nlogn) O(1)
 	if len(s) != len(t) {
 		return false
 	}
 
-	var store [128]int
-	for i := 0; i < len(s); i++ {
-		store[int(s[i])]++
-		store[int(t[i])]--
-	}
+	bytesS := []byte(s)
+	bytesT := []byte(t)
+	sort.Slice(bytesS, func(i, j int) bool { return bytesS[i] < bytesS[j] })
+	sort.Slice(bytesT, func(i, j int) bool { return bytesT[i] < bytesT[j] })
+	s = string(bytesS)
+	t = string(bytesT)
 
-	for _, val := range store {
-		if val != 0 {
-			return false
-		}
 
-	}
-
-	return true
-
+	return s == t
 }
