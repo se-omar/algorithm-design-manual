@@ -1,12 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"tadd/book/chapter3/exercises"
-)
+import ()
 
-func main() {
-	s := ")()(())()()))())))("
-
-	fmt.Println(chapter3.ContigParens(s))
-}
+func main() {}
