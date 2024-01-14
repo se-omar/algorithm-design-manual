@@ -1,23 +1,24 @@
 package chapter3
 
 func isAnagram(s string, t string) bool {
-	// populate hashmap O(n) O(n)
+	// populate array O(n) O(n)
 	if len(s) != len(t) {
 		return false
 	}
 
-	tbl := map[byte]int{}
-
+	var store [128]int
 	for i := 0; i < len(s); i++ {
-		tbl[s[i]]++
-		tbl[t[i]]--
+		store[int(s[i])]++
+		store[int(t[i])]--
 	}
 
-	for _, val := range tbl {
+	for _, val := range store {
 		if val != 0 {
 			return false
 		}
+
 	}
 
 	return true
+
 }
