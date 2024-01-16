@@ -1,4 +1,4 @@
-package chapter3
+package main
 
 type BST struct {
 	parent *BST
@@ -7,15 +7,15 @@ type BST struct {
 	item   int
 }
 
-func searchBst(tree *BST, item int) *BST {
+func SearchBst(tree *BST, item int) *BST {
 	if tree == nil {
 		return &BST{}
 	}
 
 	if item > tree.item {
-		return searchBst(tree.right, item)
+		return SearchBst(tree.right, item)
 	} else if item < tree.item {
-		return searchBst(tree.left, item)
+		return SearchBst(tree.left, item)
 	} else {
 		return tree
 	}
