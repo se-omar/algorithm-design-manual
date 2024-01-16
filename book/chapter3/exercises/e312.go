@@ -11,15 +11,7 @@ func maxDepthRecur(root *TreeNode) int {
 		return 0
 	}
 
-	countL := 1 + maxDepthRecur(root.Left)
-	countR := 1 + maxDepthRecur(root.Right)
-
-	if countL > countR {
-		return countL
-	}
-
-	return countR
-
+	return 1 + max(maxDepthRecur(root.Left), maxDepthRecur(root.Right))
 }
 
 type stack []stackItem
