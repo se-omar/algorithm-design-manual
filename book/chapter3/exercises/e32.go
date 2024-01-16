@@ -3,7 +3,7 @@
 // parentheses in S, which is 12 in the example above. (Hint: The solution is not
 // necessarily a contiguous run of parenthesis from S.)
 
-package chapter3
+package main
 
 func ContigParens(s string) int {
 	stk := []byte{}

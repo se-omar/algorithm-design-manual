@@ -1,4 +1,4 @@
-package chapter3
+package main
 
 type ListNode struct {
 	Val  int

@@ -1,4 +1,4 @@
-package chapter3
+package main
 
 type Stack struct {
 	elements []int

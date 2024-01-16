@@ -6,7 +6,7 @@
 // identify the position of the first offending parenthesis if the string is not properly
 // nested and balanced.
 
-package chapter3
+package main
 
 func NestedParens(s string) bool {
 	stk := []byte{}
