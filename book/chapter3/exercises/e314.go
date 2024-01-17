@@ -6,22 +6,21 @@ func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
 	}
 
 	tree := &TreeNode{}
+	sum := 0
+	var leftNode1, leftNode2, rightNode1, rightNode2 *TreeNode = nil, nil, nil, nil
 
-	if root1 == nil && root2 != nil {
-		tree.Val = root2.Val
-		tree.Left = mergeTrees(nil, root2.Left)
-		tree.Right = mergeTrees(nil, root2.Right)
+	if root1 != nil {
+		sum += root1.Val
+		leftNode1, rightNode1 = root1.Left, root1.Right
 	}
 
-	if root1 != nil && root2 == nil {
-		tree.Val = root1.Val
-		tree.Left = mergeTrees(root1.Left, nil)
-		tree.Right = mergeTrees(root1.Right, nil)
-	} else if root1 != nil && root2 != nil {
-		tree.Val = root1.Val + root2.Val
-		tree.Left = mergeTrees(root1.Left, root2.Left)
-		tree.Right = mergeTrees(root1.Right, root2.Right)
+	if root2 != nil {
+		sum += root2.Val
+		leftNode2, rightNode2 = root2.Left, root2.Right
 	}
+	tree.Val = sum
+	tree.Left = mergeTrees(leftNode1, leftNode2)
+	tree.Right = mergeTrees(rightNode1, rightNode2)
 
 	return tree
 }
