@@ -1,27 +1,23 @@
 package main
 
-type treeInfo struct {
-	balanced bool
-	h        int
-}
-
+var balanced bool
 func isBalanced(root *TreeNode) bool {
-	if root == nil {
-		return true
-	}
-
-	info := helper(root, 0)
-	return info.balanced
+	balanced = true
+	helper(root)
+	return balanced
 }
 
-func helper(root *TreeNode, h int) treeInfo {
+func helper(root *TreeNode) int {
 	if root == nil {
-		return treeInfo{balanced: true, h: 0}
+		return 0
 	}
 
-	left, right := helper(root.Left, h+1), helper(root.Right, h+1)
-	balanced := left.balanced && right.balanced && diff(left.h, right.h) <= 1
-	return treeInfo{balanced: balanced, h: 1 + max(left.h, right.h)}
+	lh, rh := helper(root.Left), helper(root.Right)
+	if diff(lh, rh) > 1 {
+		balanced = false
+	}
+
+	return  1 + max(lh, rh)
 }
 
 func diff(a, b int) int {
