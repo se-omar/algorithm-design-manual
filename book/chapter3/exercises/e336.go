@@ -16,3 +16,8 @@ func middleNode(head *ListNode) *ListNode {
 
 	return slow
 }
+
+
+// s    s    s
+// O -> O -> O -> O -> O
+// f         f         f
