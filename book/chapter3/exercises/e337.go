@@ -13,8 +13,5 @@ func isSameTree(p *TreeNode, q *TreeNode) bool {
 		return false
 	}
 
-	isSameLeft := isSameTree(p.Left, q.Left)
-	isSameRight := isSameTree(p.Right, q.Right)
-
-	return isSameLeft && isSameRight
+	return isSameTree(p.Left, q.Left) && isSameTree(p.Right, q.Right)
 }
