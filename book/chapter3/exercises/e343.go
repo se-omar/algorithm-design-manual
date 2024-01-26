@@ -5,14 +5,14 @@ func hasCycle(head *ListNode) bool {
 		return false
 	}
 
-	ht := make(map[*ListNode]int)
+	fast, slow := head, head
 
-	for head != nil {
-		if _, ok := ht[head]; ok {
+	for fast != nil && fast.Next != nil {
+		if fast.Next == slow {
 			return true
 		}
-		ht[head] = head.Val
-		head = head.Next
+		slow = slow.Next
+		fast = fast.Next.Next
 	}
 	return false
 }
