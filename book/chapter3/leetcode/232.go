@@ -34,16 +34,12 @@ func Constructor() MyQueue {
 }
 
 func (this *MyQueue) Push(x int) {
-	if this.s1.isEmpty() {
-		this.s1.push(x)
-	} else {
-		for this.s1.size() > 0 {
-			this.s2.push(this.s1.pop())
-		}
-		this.s1.push(x)
-		for this.s2.size() > 0 {
-			this.s1.push(this.s2.pop())
-		}
+	for this.s1.size() > 0 {
+		this.s2.push(this.s1.pop())
+	}
+	this.s1.push(x)
+	for this.s2.size() > 0 {
+		this.s1.push(this.s2.pop())
 	}
 }
 
