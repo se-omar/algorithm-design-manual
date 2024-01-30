@@ -1,11 +1,5 @@
 package chapter4
 
-import (
-	"sort"
-
-	"golang.org/x/exp/slices"
-)
-
 func IsDisjoint(s1, s2 []int) bool {
 	// naive solution
 	for i := 0; i < len(s1); i++ {
