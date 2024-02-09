@@ -1,18 +1,17 @@
 package leetcode
 
 func majorityElement(nums []int) int {
-	half := len(nums) / 2
-	hm := make(map[int]int)
-	for _, v := range nums {
-		hm[v]++
-	}
+	count, curr := 0, nums[0] 
 
-	for k, v := range hm {
-		if v > half {
-			return k
+	for i := 1; i < len(nums); i++ {
+		if nums[i] == curr {
+			count++
+		} else if count == 0 {
+			curr = nums[i]
+		} else {
+			count--
 		}
 	}
-
-	return 0
-
+	 
+	return curr
 }
